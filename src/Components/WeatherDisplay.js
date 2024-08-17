@@ -4,13 +4,13 @@ const WeatherDisplay = () => {
   const { forecast } = useContext(Geoapify);
 
   return (
-    <div className="weather container my-5">
-      <div className="row">
+    <div className="weather container my-5 d-flex justify-content-center">
+      <div className="row w-100 d-flex justify-content-center">
         {forecast.length > 0 ? (
           forecast.map((item, index) => (
             <div
               key={index}
-              className="weather-info col-6 col-sm-6 col-lg-4 mb-4 d-flex align-items-stretch"
+              className="weather-info col-12 col-sm-6 col-lg-4 mb-4 d-flex align-items-stretch justify-content-center"
             >
               <div className="card border-0 shadow-sm">
                 <img

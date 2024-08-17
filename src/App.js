@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { GeoapifyProvider } from "./Context/Geoapify";
 import WeatherDisplay from "./Components/WeatherDisplay";
+import Footer from "./Components/Footer";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -46,17 +47,20 @@ function App() {
       <div className="container bg-white p-4 rounded shadow-lg">
         <GeoapifyProvider city={city}>
           <h1 className="text-center mb-4">Weather Application</h1>
-          <div className="input-group mb-3">
-            <input
-              className="form-control"
-              value={inputValue}
-              onChange={handleChange}
-              placeholder="Enter a city"
-            />
-            <button onClick={handleClick} className="btn btn-primary">
-              Search
-            </button>
+          <div className="d-flex justify-content-center">
+            <div className="input-group mb-3" style={{ maxWidth: "400px" }}>
+              <input
+                className="form-control"
+                value={inputValue}
+                onChange={handleChange}
+                placeholder="Enter a city"
+              />
+              <button onClick={handleClick} className="btn btn-dark">
+                Search
+              </button>
+            </div>
           </div>
+
           {city === "" ? (
             <h2 className="text-center">Your current location</h2>
           ) : (
@@ -67,6 +71,7 @@ function App() {
           <WeatherDisplay />
         </GeoapifyProvider>
       </div>
+      <Footer></Footer>
     </div>
   );
 }
